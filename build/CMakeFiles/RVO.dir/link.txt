@@ -1,0 +1,2 @@
+/bin/x86_64-linux-gnu-ar qc libRVO.a CMakeFiles/RVO.dir/RVO.cpp.o
+/bin/x86_64-linux-gnu-ranlib libRVO.a

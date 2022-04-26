@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "tuple": "cpp",
+        "*.tcc": "cpp",
+        "fstream": "cpp",
+        "bitset": "cpp",
+        "memory": "cpp",
+        "memory_resource": "cpp",
+        "iosfwd": "cpp",
+        "new": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "utility": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

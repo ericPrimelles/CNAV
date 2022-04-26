@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples/main.cpp
+iostream
+/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples/iostream
+vector
+-
+
