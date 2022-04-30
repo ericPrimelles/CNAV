@@ -40,6 +40,9 @@ public:
     *   \brief  Resets the inner RVOSImulator and Restarts the timer
     */
     void reset();
+
+    torch::Tensor sample();
+    // Inline funtions;
     inline size_t getNAgents() {return this->n_agents;}
 private:
 

@@ -51,6 +51,20 @@ torch::Tensor Environment::step(std::vector<torch::Tensor> actions)
     return this->calculateGlobalReward() + this->calculateInstantReward();
 }
 
+
+torch::Tensor Environment::sample(){
+    std::vector<torch::Tensor> actions(this->n_agents);
+    #ifdef _OPENMP
+    #pragma omp parallel for
+    #endif 
+    for (size_t i = 0; i < this->n_agents; i++)
+    {
+        actions[i] = torch::rand((int64_t)2, torch::dtype(torch::kFloat32));
+    }
+    
+    return this->step(actions);
+    //return this->step(torch::rand({this->n_agents, 2}, torch::dtype(torch::kFloat32)));
+}
 torch::Tensor Environment::getObservation()
 {
     int64_t nAgents = this->getNumAgents();
