@@ -3,16 +3,17 @@
 
 using std::cout, std::endl;
 
-MADDPG::MADDPG(std::vector<RVO::Vector2> positions, int64_t Ain_dims, int64_t Aout_dims, std::vector<int64_t> Ah_dims, int64_t Cin_dims, int64_t Cout_dims, std::vector<int64_t> Ch_dims,
+MADDPG::MADDPG(Environment* sim, int64_t Ain_dims, int64_t Aout_dims, std::vector<int64_t> Ah_dims, int64_t Cin_dims, int64_t Cout_dims, std::vector<int64_t> Ch_dims,
                size_t n_agents, size_t scenario, float alpha, float beta, size_t fc1, size_t fc2, size_t T, float gamma, float tau,
                std::string path, size_t batch_size, size_t max_memory, size_t k_epchos)
 {
+    this->env = sim;
     this->Ain_dims = Ain_dims;
     this->Aout_dims = Aout_dims;
     this->Cin_dims = Cin_dims;
     this->Cout_dims = Cout_dims;
     this->batch_size = batch_size;
-    this->n_agents = n_agents;
+    this->n_agents = this->env->getNAgents();
     this->scenario = scenario;
     this->alpha = alpha;
     this->beta = beta;
@@ -26,8 +27,6 @@ MADDPG::MADDPG(std::vector<RVO::Vector2> positions, int64_t Ain_dims, int64_t Ao
     this->k_epochs = k_epchos;
 
     this->memory = new ReplayBuffer::Buffer(max_memory, batch_size);
-    this->env = new Environment(this->n_agents); // need to learn how to initialize scenarios
-    this->env->addAgents(positions);
     for (size_t i = 0; i < n_agents; i++)
     {
         this->agents[i] = new DDPGAgent(this->Ain_dims, this->Aout_dims, Ah_dims, this->Cin_dims, this->Cout_dims, Ch_dims,

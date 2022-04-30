@@ -40,6 +40,7 @@ public:
     *   \brief  Resets the inner RVOSImulator and Restarts the timer
     */
     void reset();
+    inline size_t getNAgents() {return this->n_agents;}
 private:
 
     /*
