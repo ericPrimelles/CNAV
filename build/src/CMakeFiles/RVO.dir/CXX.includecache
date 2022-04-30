@@ -81470,12 +81470,6 @@ ATen/core/op_registration/op_registration.h
 torch/custom_class.h
 -
 
-/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Buffer.cpp
-Buffer.h
-/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Buffer.h
-random
--
-
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Buffer.h
 torch/torch.h
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/torch/torch.h
@@ -81483,10 +81477,6 @@ vector
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/vector
 algorithm
 -
-
-/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/DDPGAgent.cpp
-DDPGAgent.h
-/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/DDPGAgent.h
 
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/DDPGAgent.h
 vector
@@ -81500,6 +81490,8 @@ string
 Environment.h
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.h
 math.h
+-
+omp.h
 -
 
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.h

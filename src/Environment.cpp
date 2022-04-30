@@ -1,41 +1,51 @@
 #include "Environment.h"
 #include <math.h>
 
-Environment::Environment(size_t n_agents)
-{
-    this->start = clock();
-    this->end = 0;
-    this->n_agents = n_agents;
-}
+#if _OPENMP
+#include <omp.h>
+#endif
 
-Environment::Environment(size_t n_agents, float timeStep, float neighborDist, size_t maxNeighbors,
-                         float timeHorizon, float timeHorizonObst, float radius,
-                         float maxSpeed, const RVO::Vector2 &velocity)
+Environment::Environment(size_t n_agents, size_t time_step, float neighbor_dists, size_t max_neig, float time_horizon,
+                         float time_horizon_obst, float radius, float max_speed,std::vector<RVO::Vector2> positions)
 {
     this->start = clock();
     this->end = 0;
     this->n_agents = n_agents;
+    this->setAgentDefaults(neighbor_dists, max_neig, time_horizon, time_horizon_obst, radius, max_speed);
+   
+    this->addAgents(positions);
 }
 
 Environment::~Environment()
 {
 }
 
-torch::Tensor Environment::step(std::vector<torch::Tensor> actions)
+void Environment::setPrefferedVelocities(std::vector<torch::Tensor> actions)
 {
-
-    // Executing Actions
-    RVO::Vector2 velPlaceholder;
     float x = 0.0f, y = 0.0f;
+    RVO::Vector2 velPlaceholder;
+#ifdef _OPENMP
+#pragma omp parallel for
+#endif
     for (size_t i = 0; i < this->getNumAgents(); i++)
     {
         x = actions[i][0].item<float>();
         y = actions[i][1].item<float>();
 
         velPlaceholder = RVO::Vector2(x, y);
-
+        if (RVO::absSq(velPlaceholder) > 1.0f)
+        {
+            velPlaceholder = RVO::normalize(velPlaceholder);
+        }
         this->setAgentPrefVelocity(i, velPlaceholder);
     }
+}
+
+torch::Tensor Environment::step(std::vector<torch::Tensor> actions)
+{
+
+    // Executing Actions
+    this->setPrefferedVelocities(actions);
     this->doStep();
 
     return this->calculateGlobalReward() + this->calculateInstantReward();

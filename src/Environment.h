@@ -14,11 +14,9 @@
 class Environment : RVO::RVOSimulator
 {
 public:
-    Environment(size_t n_agents);
-    Environment(size_t n_agents, float timeStep, float neighborDist, size_t maxNeighbors,
-					 float timeHorizon, float timeHorizonObst, float radius,
-					 float maxSpeed, const RVO::Vector2 &velocity = RVO::Vector2());
-    using RVOSimulator::RVOSimulator;
+    Environment(size_t n_agents, size_t timestep,float neighbor_dists, size_t max_neig, float time_horizont,
+                         float time_horizont_obst, float radius, float max_speeds, std::vector<RVO::Vector2> positions);
+    
     ~Environment();
     /*
     * \brief Returns a Tensor with the position and Pref velocities of every agent in the environment
@@ -48,6 +46,7 @@ private:
     * \brief Returns a global reward calculated from time spended when the environment is done
     */
     torch::Tensor calculateGlobalReward();
+    void setPrefferedVelocities(std::vector<torch::Tensor> velocities);
     /*
     * \brief Returns a local reward based on the local actions of the agents.
     */
