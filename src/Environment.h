@@ -7,6 +7,13 @@
 #include "vector"
 #include "torch/torch.h"
 #include "chrono"
+#include <exception>
+
+struct dimensionError: public std::exception{
+    const char* what()const throw(){
+        return "Position or goal vectors size don't match with number of agents in environment.";
+    }
+};
 
 /*
 * \brief Environment class. Extension of RVOSimulator class to following the perspective of a RL Environment
@@ -15,7 +22,8 @@ class Environment : RVO::RVOSimulator
 {
 public:
     Environment(size_t n_agents, size_t timestep,float neighbor_dists, size_t max_neig, float time_horizont,
-                         float time_horizont_obst, float radius, float max_speeds, std::vector<RVO::Vector2> positions);
+                         float time_horizont_obst, float radius, float max_speeds, std::vector<RVO::Vector2> positions,
+                         std::vector<RVO::Vector2> goals);
     
     ~Environment();
     /*
@@ -28,11 +36,6 @@ public:
     */
     torch::Tensor step(std::vector<torch::Tensor> actions);
     /*
-    *   \brief  Add a set of agents to the environment (RVO Agents)
-    *   \param positions Set of two-dimensional positions of agents to be settled
-    */
-    void addAgents(std::vector<RVO::Vector2> positions);
-    /*
     *   \brief Returns true if all agents reach their respective goals, otherwise returns false
     */
     bool isDone();
@@ -42,10 +45,16 @@ public:
     void reset();
 
     torch::Tensor sample();
+    void setup(std::vector<RVO::Vector2> positions, std::vector<RVO::Vector2> goals);
     // Inline funtions;
     inline size_t getNAgents() {return this->n_agents;}
 private:
-
+    /*
+    *   \brief  Add a set of agents to the environment (RVO Agents)
+    *   \param positions Set of two-dimensional positions of agents to be settled
+    */
+    void addAgents(std::vector<RVO::Vector2> positions);
+    void addAgentsGoals(std::vector<RVO::Vector2> goals);
     /*
     * \brief Returns a global reward calculated from time spended when the environment is done
     */

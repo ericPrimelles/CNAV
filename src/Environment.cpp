@@ -6,18 +6,37 @@
 #endif
 
 Environment::Environment(size_t n_agents, size_t time_step, float neighbor_dists, size_t max_neig, float time_horizon,
-                         float time_horizon_obst, float radius, float max_speed,std::vector<RVO::Vector2> positions)
+                         float time_horizon_obst, float radius, float max_speed,std::vector<RVO::Vector2> positions, 
+                         std::vector<RVO::Vector2> goals)
 {
     this->start = clock();
     this->end = 0;
     this->n_agents = n_agents;
     this->setAgentDefaults(neighbor_dists, max_neig, time_horizon, time_horizon_obst, radius, max_speed);
    
-    this->addAgents(positions);
+    
 }
 
 Environment::~Environment()
 {
+}
+
+void Environment::setup(std::vector<RVO::Vector2> positions, std::vector<RVO::Vector2> goals){
+    try
+    {
+        if(positions.size() == this->n_agents and goals.size() == this->n_agents){
+            this->addAgents(positions);
+            this->addAgentsGoals(goals);
+        }
+        else{
+            throw dimensionError();
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }
 
 void Environment::setPrefferedVelocities(std::vector<torch::Tensor> actions)
@@ -150,6 +169,14 @@ void Environment::addAgents(std::vector<RVO::Vector2> positions)
     {
         this->addAgent(pos);
     }
+}
+
+void Environment::addAgentsGoals(std::vector<RVO::Vector2> goals){
+    for (size_t i = 0; i < n_agents; i++)
+    {
+        this->setAgentGoal(i, goals[i]);
+    }
+    
 }
 void Environment::reset()
 {

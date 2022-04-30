@@ -81487,6 +81487,8 @@ torch/torch.h
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/torch/torch.h
 chrono
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/chrono
+exception
+-
 
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/RVO.h
 RVOSimulator.h
