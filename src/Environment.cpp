@@ -13,8 +13,8 @@ Environment::Environment(size_t n_agents, size_t time_step, float neighbor_dists
     this->end = 0;
     this->n_agents = n_agents;
     this->setAgentDefaults(neighbor_dists, max_neig, time_horizon, time_horizon_obst, radius, max_speed);
-   
-    
+    this->setup(positions, goals);
+    //std::cout << positions.size() << n_agents << std::endl;
 }
 
 Environment::~Environment()
@@ -156,7 +156,7 @@ bool Environment::isDone()
 {
     for (size_t i = 0; i < this->getNumAgents(); i++)
     {
-        if (this->getAgentPosition(i) != this->getAgentGoal(i))
+        if (RVO::absSq(this->getAgentPosition(i) - this->getAgentGoal(i)) > this->getAgentRadius(i) * this->getAgentRadius(i))
             return false;
     }
     return true;

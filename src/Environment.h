@@ -18,7 +18,7 @@ struct dimensionError: public std::exception{
 /*
 * \brief Environment class. Extension of RVOSimulator class to following the perspective of a RL Environment
 */
-class Environment : RVO::RVOSimulator
+class Environment : public RVO::RVOSimulator
 {
 public:
     Environment(size_t n_agents, size_t timestep,float neighbor_dists, size_t max_neig, float time_horizont,
@@ -47,7 +47,8 @@ public:
     torch::Tensor sample();
     void setup(std::vector<RVO::Vector2> positions, std::vector<RVO::Vector2> goals);
     // Inline funtions;
-    inline size_t getNAgents() {return this->n_agents;}
+    inline size_t getNAgents() {return this->getNumAgents();}
+    inline RVO::Vector2 getAgentPos(size_t i) {return this->getAgentPosition(i);}
 private:
     /*
     *   \brief  Add a set of agents to the environment (RVO Agents)
