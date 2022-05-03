@@ -12,6 +12,8 @@ Environment::Environment(size_t n_agents, size_t time_step, float neighbor_dists
     this->start = clock();
     this->end = 0;
     this->n_agents = n_agents;
+    this->positions = positions;
+    this->goals = goals;
     this->setAgentDefaults(neighbor_dists, max_neig, time_horizon, time_horizon_obst, radius, max_speed);
     this->setup(positions, goals);
     //std::cout << positions.size() << n_agents << std::endl;
@@ -66,7 +68,6 @@ torch::Tensor Environment::step(std::vector<torch::Tensor> actions)
     // Executing Actions
     this->setPrefferedVelocities(actions);
     this->doStep();
-
     return this->calculateGlobalReward() + this->calculateInstantReward();
 }
 
@@ -87,15 +88,16 @@ torch::Tensor Environment::sample(){
 torch::Tensor Environment::getObservation()
 {
     int64_t nAgents = this->getNumAgents();
-    torch::Tensor observation = torch::zeros({nAgents, 2, 2}, torch::dtype(torch::kFloat32));
-    std::vector<std::vector<float>> data(2);
+    torch::Tensor observation = torch::zeros({this->n_agents, 4}, torch::dtype(torch::kFloat32));
+    std::vector<std::vector<float>> data;
     int64_t size;
 
     for (size_t i = 0; i < this->getNumAgents(); i++)
     {
-        data = {{this->getAgentPosition(i).x(), this->getAgentPosition(i).y()}, {this->getAgentPrefVelocity(i).x(), this->getAgentPrefVelocity(i).y()}};
-        size = data.size();
-        observation[i] = torch::from_blob(data.data(), {1, size});
+        data.push_back({this->getAgentPosition(i).x(), this->getAgentPosition(i).y(), this->getAgentPrefVelocity(i).x(), this->getAgentPrefVelocity(i).y()});
+        size = data[i].size();
+         
+        observation[i] = torch::from_blob(data[i].data(), {size});
     }
     return observation;
 }
@@ -106,13 +108,7 @@ torch::Tensor Environment::calculateGlobalReward()
     this->end = clock();
     this->time = ((float)this->end - this->start) / CLOCKS_PER_SEC;
 
-    for (size_t i = 0; i < this->getNumAgents(); i++)
-    {
-        if (this->getAgentPosition(i) != this->getAgentGoal(i))
-        {
-            return torch::zeros(this->getNumAgents());
-        }
-    }
+   if(!this->isDone()) return torch::zeros((int64_t)this->getNumAgents());
 
     return torch::full((int64_t)this->getNumAgents(), 100.0 - time);
 }
@@ -149,7 +145,7 @@ torch::Tensor Environment::calculateInstantReward()
         rewards[i] = r_goal + r_coll_a + r_coll_obs + r_cong;
     }
 
-    return torch::from_blob(rewards.data(), {1, size}, torch::dtype(torch::kFloat32));
+    return torch::from_blob(rewards.data(), {size}, torch::dtype(torch::kFloat32));
 }
 
 bool Environment::isDone()
@@ -180,7 +176,11 @@ void Environment::addAgentsGoals(std::vector<RVO::Vector2> goals){
 }
 void Environment::reset()
 {
-    this->reset();
+    for (size_t i = 0; i < this->n_agents; i++)
+    {
+        this->setAgentPosition(i, positions[i]);
+    }
+    
     this->start = clock();
     this->end = 0;
 }

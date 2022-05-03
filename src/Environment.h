@@ -68,6 +68,8 @@ private:
     clock_t start, end;
     float time= 0.0f;
     size_t n_agents;
+    std::vector<RVO::Vector2> positions, goals;
+    
 };
 
 #endif

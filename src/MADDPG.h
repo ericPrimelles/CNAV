@@ -35,7 +35,7 @@ private:
     float alpha, beta, fc1, fc2, gamma, tau;
     std::string path;
     Environment *env;
-    std::vector<DDPGAgent *> agents;
+    std::vector<DDPGAgent*> agents;
     ReplayBuffer::Buffer *memory;
 };
 

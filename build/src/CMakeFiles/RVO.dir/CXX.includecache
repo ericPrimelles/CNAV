@@ -81486,14 +81486,6 @@ torch/torch.h
 string
 -
 
-/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.cpp
-Environment.h
-/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.h
-math.h
--
-omp.h
--
-
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.h
 RVO.h
 /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/RVO.h

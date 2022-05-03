@@ -8,7 +8,7 @@ ReplayBuffer::Buffer::Buffer(size_t max_memory, size_t batch_size)
     this->max_memory = max_memory;
     this->batch_size = batch_size;
     this->buffer_counter = 0;
-    this->memory.reserve(this->max_memory);
+    this->memory = std::vector<ReplayBuffer::Transition>(max_memory);
 }
 
 ReplayBuffer::Buffer::~Buffer()

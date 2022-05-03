@@ -3,7 +3,7 @@
 
 using std::cout, std::endl;
 
-MADDPG::MADDPG(Environment* sim, int64_t Ain_dims, int64_t Aout_dims, std::vector<int64_t> Ah_dims, int64_t Cin_dims, int64_t Cout_dims, std::vector<int64_t> Ch_dims,
+MADDPG::MADDPG(Environment *sim, int64_t Ain_dims, int64_t Aout_dims, std::vector<int64_t> Ah_dims, int64_t Cin_dims, int64_t Cout_dims, std::vector<int64_t> Ch_dims,
                size_t n_agents, size_t scenario, float alpha, float beta, size_t fc1, size_t fc2, size_t T, float gamma, float tau,
                std::string path, size_t batch_size, size_t max_memory, size_t k_epchos)
 {
@@ -26,11 +26,12 @@ MADDPG::MADDPG(Environment* sim, int64_t Ain_dims, int64_t Aout_dims, std::vecto
     this->max_memory = max_memory;
     this->k_epochs = k_epchos;
 
+    this->agents.reserve(this->n_agents);
     this->memory = new ReplayBuffer::Buffer(max_memory, batch_size);
     for (size_t i = 0; i < n_agents; i++)
     {
-        this->agents[i] = new DDPGAgent(this->Ain_dims, this->Aout_dims, Ah_dims, this->Cin_dims, this->Cout_dims, Ch_dims,
-                                        this->gamma, this->tau);
+        this->agents.push_back(new DDPGAgent(this->Ain_dims, this->Aout_dims, Ah_dims, this->Cin_dims, this->Cout_dims, Ch_dims,
+                                             this->gamma, this->tau));
         this->agents[i]->updateParameters(1.0f);
     }
 }
@@ -65,13 +66,14 @@ void MADDPG::loadCheckpoint()
 
 std::vector<torch::Tensor> MADDPG::chooseAction(torch::Tensor obs, bool use_rnd, bool use_net)
 {
-    std::vector<torch::Tensor> actions(this->n_agents);
+    std::vector<torch::Tensor> actions;
 
     for (size_t i = 0; i < this->n_agents; i++)
     {
-        actions[i] = agents[i]->sampleAction(obs[i], use_rnd, use_net);
-    }
 
+        actions.push_back(agents[i]->sampleAction(obs[i], use_rnd, use_net));
+    }
+    // std::cout << actions[0].sizes() << endl;
     return actions;
 }
 
@@ -83,12 +85,13 @@ void MADDPG::Train()
     float traj_reward = 0.0f;
     float traj_q_loss = 0.0f;
     float traj_a_loss = 0.0f;
-    for (size_t i = 0; i < this->max_memory; i++)
+    for (size_t i = 0; i < this->batch_size + 100; i++)
     {
         if (i % this->T == 0)
         {
             this->env->reset();
         }
+
         a.obs = env->getObservation();
         a.actions = this->chooseAction(a.obs);
         a.rewards = env->step(a.actions);
@@ -100,6 +103,8 @@ void MADDPG::Train()
     // Starting training
     for (size_t epochs = 0; epochs < k_epochs; epochs++)
     {
+        std::cout << "Starting training" << epochs << std::endl;
+    
         env->reset();
         //  Colecting some new experiences
         for (size_t i = 0; i < T; i++)
@@ -113,7 +118,8 @@ void MADDPG::Train()
 
             sampledTrans = memory->sampleBuffer();
             for (size_t agent = 0; agent < this->n_agents; agent++)
-            {
+            {   
+                std::cout << "Agent For" << agent << endl;
                 this->agents[agent]->a_optim.zero_grad();
                 this->agents[agent]->c_optim.zero_grad();
                 float memsize_scale = 1.0f / static_cast<float>(this->batch_size);
@@ -121,16 +127,20 @@ void MADDPG::Train()
                 torch::Tensor a_loss = torch::zeros({1});
 
                 for (auto &t : sampledTrans)
-                {
+                {   
                     torch::Tensor target;
                     torch::Tensor ret;
                     if (!t.done)
-                    {
+                    {   
+                        
+                        
                         ret = this->gamma * agents[agent]->target_c_n(torch::cat({t.obs_1[agent], this->agents[agent]->target_a_n(t.obs_1[agent])})).detach();
                         target = t.rewards[agent] + ret;
+                        
                     }
                     else
                     {
+                        
                         target = t.rewards[agent] * torch::ones({1});
                     }
                     torch::Tensor seg_loss = this->agents[agent]->target_c_n(torch::cat({t.obs[agent], t.actions[agent]}).detach()) - target;
@@ -139,17 +149,16 @@ void MADDPG::Train()
                 q_loss.backward();
                 this->agents[agent]->c_optim.step();
                 traj_q_loss += q_loss.item<float>();
-
                 for (auto &t : sampledTrans)
                 {
-                    a_loss -= memsize_scale * this->agents[agent]->c_n(torch::cat({t.obs[agent], this->agents[agent]->a_n(t.obs[agent])})).detach();
+                    a_loss -= memsize_scale * this->agents[agent]->c_n(torch::cat({t.obs[agent], this->agents[agent]->a_n(t.obs[agent])}).detach());
                 }
                 a_loss.backward();
                 this->agents[agent]->a_optim.step();
                 traj_a_loss += a_loss.item<float>();
                 this->agents[agent]->updateParameters(tau);
-
                 
+
             }
         }
         if(epochs % 10 == 0){
@@ -158,15 +167,18 @@ void MADDPG::Train()
     }
 }
 
-void MADDPG::Test(size_t epochs){
+void MADDPG::Test(size_t epochs)
+{
+
+    std::cout << "Testing" << std::endl;
     for (size_t i = 0; i < epochs; i++)
     {
+
         this->env->reset();
         for (size_t j = 0; j < this->T; j++)
         {
             this->env->step(this->chooseAction(this->env->getObservation(), false, true));
+            // this->chooseAction(this->env->getObservation());
         }
-        
     }
-    
 }
