@@ -5,7 +5,7 @@
 #include <omp.h>
 #endif
 
-Environment::Environment(size_t n_agents, size_t time_step, float neighbor_dists, size_t max_neig, float time_horizon,
+Environment::Environment(size_t n_agents, float time_step, float neighbor_dists, size_t max_neig, float time_horizon,
                          float time_horizon_obst, float radius, float max_speed,std::vector<RVO::Vector2> positions, 
                          std::vector<RVO::Vector2> goals)
 {
@@ -16,6 +16,11 @@ Environment::Environment(size_t n_agents, size_t time_step, float neighbor_dists
     this->goals = goals;
     this->setAgentDefaults(neighbor_dists, max_neig, time_horizon, time_horizon_obst, radius, max_speed);
     this->setup(positions, goals);
+    for (size_t i = 0; i < n_agents; i++)
+    {
+        this->setAgentGoal(i, goals[i]);
+    }
+    
     //std::cout << positions.size() << n_agents << std::endl;
 }
 
@@ -54,7 +59,7 @@ void Environment::setPrefferedVelocities(std::vector<torch::Tensor> actions)
         y = actions[i][1].item<float>();
 
         velPlaceholder = RVO::Vector2(x, y);
-        if (RVO::absSq(velPlaceholder) > 1.0f)
+        if (RVO::absSq(velPlaceholder) > 1.0f) // add normalization to velocities
         {
             velPlaceholder = RVO::normalize(velPlaceholder);
         }
