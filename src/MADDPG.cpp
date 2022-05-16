@@ -168,7 +168,7 @@ void MADDPG::Train()
         if(epochs % 10 == 0){
                     this->saveCheckpoint();
                 }
-        this->visualize();
+        //this->visualize();
     }
 }
 

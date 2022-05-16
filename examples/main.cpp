@@ -746,7 +746,7 @@ int main(int argc, char const *argv[])
 
     MADDPG program(env, 4, 2, {32, 16, 8}, 6, 1, {32, 16, 8}, 0);
 
-    if (argv[2] == 0)
+    if (atoi(argv[2]) == 0)
     {
         program.Train();
         delete env;
