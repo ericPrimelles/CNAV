@@ -58,8 +58,8 @@ public:
     DDPGAgent(int64_t Ain_dims, int64_t Aout_dims, std::vector<int64_t> Ah_dims, int64_t Cin_dims, int64_t Cout_dims, std::vector<int64_t> Ch_dims, float gamma=0.9,float tau=1);
     ~DDPGAgent();
 	void updateParameters(float tau);
-	void saveModel(std::string path);
-	void loadModel(std::string path);
+	void saveModel(std::string path, size_t i);
+	void loadModel(std::string path, size_t i);
 	torch::Tensor sampleAction(torch::Tensor obs, bool use_random, bool use_net=true);
 	
 	NN a_n,  c_n,  target_a_n,  target_c_n;

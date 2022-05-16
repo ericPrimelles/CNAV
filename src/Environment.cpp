@@ -16,10 +16,7 @@ Environment::Environment(size_t n_agents, float time_step, float neighbor_dists,
     this->goals = goals;
     this->setAgentDefaults(neighbor_dists, max_neig, time_horizon, time_horizon_obst, radius, max_speed);
     this->setup(positions, goals);
-    for (size_t i = 0; i < n_agents; i++)
-    {
-        this->setAgentGoal(i, goals[i]);
-    }
+    
     
     //std::cout << positions.size() << n_agents << std::endl;
 }

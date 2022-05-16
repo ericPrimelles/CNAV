@@ -21,7 +21,7 @@ struct dimensionError: public std::exception{
 class Environment : public RVO::RVOSimulator
 {
 public:
-    Environment(size_t n_agents, size_t timestep,float neighbor_dists, size_t max_neig, float time_horizont,
+    Environment(size_t n_agents, float timestep,float neighbor_dists, size_t max_neig, float time_horizont,
                          float time_horizont_obst, float radius, float max_speeds, std::vector<RVO::Vector2> positions,
                          std::vector<RVO::Vector2> goals);
     

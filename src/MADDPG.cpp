@@ -4,7 +4,7 @@
 using std::cout, std::endl;
 
 MADDPG::MADDPG(Environment *sim, int64_t Ain_dims, int64_t Aout_dims, std::vector<int64_t> Ah_dims, int64_t Cin_dims, int64_t Cout_dims, std::vector<int64_t> Ch_dims,
-               size_t n_agents, size_t scenario, float alpha, float beta, size_t fc1, size_t fc2, size_t T, float gamma, float tau,
+                size_t scenario, float alpha, float beta, size_t fc1, size_t fc2, size_t T, float gamma, float tau,
                std::string path, size_t batch_size, size_t max_memory, size_t k_epchos)
 {
     this->env = sim;
@@ -50,7 +50,7 @@ void MADDPG::saveCheckpoint()
 
     for (size_t i = 0; i < this->n_agents; i++)
     {
-        agents[i]->saveModel(this->path);
+        agents[i]->saveModel(this->path, i);
     }
 }
 
@@ -60,18 +60,19 @@ void MADDPG::loadCheckpoint()
 
     for (size_t i = 0; i < this->n_agents; i++)
     {
-        agents[i]->loadModel(this->path);
+        agents[i]->loadModel(this->path, i);
     }
 }
 
 std::vector<torch::Tensor> MADDPG::chooseAction(torch::Tensor obs, bool use_rnd, bool use_net)
 {
     std::vector<torch::Tensor> actions;
-
+    
     for (size_t i = 0; i < this->n_agents; i++)
     {
 
         actions.push_back(agents[i]->sampleAction(obs[i], use_rnd, use_net));
+        //std::cout << i << std::endl;
     }
     // std::cout << actions[0].sizes() << endl;
     return actions;
@@ -79,6 +80,7 @@ std::vector<torch::Tensor> MADDPG::chooseAction(torch::Tensor obs, bool use_rnd,
 
 void MADDPG::Train()
 {
+    
     // Creating a base memory
     ReplayBuffer::Transition a;
     std::vector<ReplayBuffer::Transition> sampledTrans;
@@ -93,13 +95,15 @@ void MADDPG::Train()
         }
 
         a.obs = env->getObservation();
+        
         a.actions = this->chooseAction(a.obs);
+        
         a.rewards = env->step(a.actions);
         a.obs_1 = env->getObservation();
         a.done = env->isDone();
         this->memory->storeTransition(a);
     }
-
+    
     // Starting training
     for (size_t epochs = 0; epochs < k_epochs; epochs++)
     {
@@ -164,6 +168,7 @@ void MADDPG::Train()
         if(epochs % 10 == 0){
                     this->saveCheckpoint();
                 }
+        this->visualize();
     }
 }
 
@@ -171,6 +176,7 @@ void MADDPG::Test(size_t epochs)
 {
 
     std::cout << "Testing" << std::endl;
+    this->loadCheckpoint();
     for (size_t i = 0; i < epochs; i++)
     {
 
@@ -181,4 +187,14 @@ void MADDPG::Test(size_t epochs)
             // this->chooseAction(this->env->getObservation());
         }
     }
+}
+
+void MADDPG::visualize(){
+    for (size_t i = 0; i < this->n_agents; i++)
+    {
+        std::cout << this->env->getAgentPos(i) << "--"; 
+    }
+
+    std::cout << std::endl;
+    
 }
