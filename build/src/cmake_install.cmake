@@ -1,4 +1,4 @@
-# Install script for directory: /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src
+# Install script for directory: /home/eric-pc/Code/Tesis/CNAV/CNAV/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,18 +39,18 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/bin/x86_64-linux-gnu-objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/RVO.h"
-    "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/RVOSimulator.h"
-    "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Vector2.h"
+    "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/RVO.h"
+    "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/RVOSimulator.h"
+    "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Vector2.h"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src/libRVO.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src/libRVO.a")
 endif()
 

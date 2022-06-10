@@ -1,4 +1,4 @@
-# Install script for directory: /media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples
+# Install script for directory: /home/eric-pc/Code/Tesis/CNAV/CNAV/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +39,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/bin/x86_64-linux-gnu-objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 

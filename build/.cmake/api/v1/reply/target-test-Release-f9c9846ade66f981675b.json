@@ -92,21 +92,21 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src"
+					"path" : "/home/eric-pc/Code/Tesis/CNAV/CNAV/src"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples"
+					"path" : "/home/eric-pc/Code/Tesis/CNAV/CNAV/examples"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "/home/eric/libtorch/include"
+					"path" : "/home/eric-pc/libtorch/include"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "/home/eric/libtorch/include/torch/csrc/api/include"
+					"path" : "/home/eric-pc/libtorch/include/torch/csrc/api/include"
 				}
 			],
 			"language" : "CXX",
@@ -137,17 +137,17 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/eric/libtorch/lib",
+				"fragment" : "-Wl,-rpath,/home/eric-pc/libtorch/lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/eric/libtorch/lib/libc10.so",
+				"fragment" : "/home/eric-pc/libtorch/lib/libc10.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/eric/libtorch/lib/libkineto.a",
+				"fragment" : "/home/eric-pc/libtorch/lib/libkineto.a",
 				"role" : "libraries"
 			},
 			{
@@ -157,33 +157,29 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/eric/libtorch/lib/libtorch.so",
+				"fragment" : "/home/eric-pc/libtorch/lib/libtorch.so",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "-Wl,--no-as-needed,\"/home/eric/libtorch/lib/libtorch_cpu.so\" -Wl,--as-needed",
+				"fragment" : "-Wl,--no-as-needed,\"/home/eric-pc/libtorch/lib/libtorch_cpu.so\" -Wl,--as-needed",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "/home/eric/libtorch/lib/libc10.so",
+				"fragment" : "/home/eric-pc/libtorch/lib/libc10.so",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "-lpthread",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-Wl,--no-as-needed,\"/home/eric/libtorch/lib/libtorch.so\" -Wl,--as-needed",
+				"fragment" : "-Wl,--no-as-needed,\"/home/eric-pc/libtorch/lib/libtorch.so\" -Wl,--as-needed",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/eric/libtorch/lib/libc10.so",
+				"fragment" : "/home/eric-pc/libtorch/lib/libc10.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/home/eric/libtorch/lib/libkineto.a",
+				"fragment" : "/home/eric-pc/libtorch/lib/libkineto.a",
 				"role" : "libraries"
 			}
 		],

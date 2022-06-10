@@ -59,7 +59,7 @@ set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CONFIGURATION_TYPES "Release")
 set(CMAKE_CXX_STANDARD 17)
 
-list(APPEND CMAKE_PREFIX_PATH "/home/eric/libtorch")
+list(APPEND CMAKE_PREFIX_PATH "/home/eric-pc/libtorch")
 find_package( Torch REQUIRED )
 
 include_directories( src )

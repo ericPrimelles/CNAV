@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV"
+CMAKE_SOURCE_DIR = /home/eric-pc/Code/Tesis/CNAV/CNAV
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build"
+CMAKE_BINARY_DIR = /home/eric-pc/Code/Tesis/CNAV/CNAV/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -102,7 +102,7 @@ install/local/fast: preinstall/fast
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && /usr/bin/cpack --config ./CPackSourceConfig.cmake /media/eric/New\ Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/CPackSourceConfig.cmake
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/eric-pc/Code/Tesis/CNAV/CNAV/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -146,7 +146,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -167,14 +167,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/CMakeFiles" "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/examples//CMakeFiles/progress.marks"
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/CMakeFiles" 0
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/eric-pc/Code/Tesis/CNAV/CNAV/build/CMakeFiles /home/eric-pc/Code/Tesis/CNAV/CNAV/build/examples//CMakeFiles/progress.marks
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eric-pc/Code/Tesis/CNAV/CNAV/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/clean
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/clean
 .PHONY : clean
 
 # The main clean target
@@ -184,22 +184,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/preinstall
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/preinstall
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 examples/CMakeFiles/test.dir/rule:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/CMakeFiles/test.dir/rule
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/CMakeFiles/test.dir/rule
 .PHONY : examples/CMakeFiles/test.dir/rule
 
 # Convenience name for target.
@@ -209,7 +209,7 @@ test: examples/CMakeFiles/test.dir/rule
 
 # fast build rule for target.
 test/fast:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/build
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/build
 .PHONY : test/fast
 
 main.o: main.cpp.o
@@ -218,7 +218,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/main.cpp.o
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -227,7 +227,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/main.cpp.i
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -236,7 +236,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/main.cpp.s
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test.dir/build.make examples/CMakeFiles/test.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -268,6 +268,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/eric-pc/Code/Tesis/CNAV/CNAV/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

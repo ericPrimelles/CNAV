@@ -706,7 +706,7 @@ int main(int argc, char const *argv[])
         break;
 
     case 2:
-        Agents = 128;
+        Agents = 64;
         break;
 
     case 3:

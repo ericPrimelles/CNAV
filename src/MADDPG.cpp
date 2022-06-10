@@ -107,8 +107,9 @@ void MADDPG::Train()
     // Starting training
     for (size_t epochs = 0; epochs < k_epochs; epochs++)
     {
-        std::cout << "Starting training" << epochs << std::endl;
-    
+        std::cout << "Training" << epochs << "/"<<k_epochs <<std::endl;
+        std::cout << "\n\n\n";
+
         env->reset();
         //  Colecting some new experiences
         for (size_t i = 0; i < T; i++)
@@ -122,8 +123,9 @@ void MADDPG::Train()
 
             sampledTrans = memory->sampleBuffer();
             for (size_t agent = 0; agent < this->n_agents; agent++)
-            {   
-                std::cout << "Agent For" << agent << endl;
+            {  
+                 
+                std:: cout << "Agent " << agent << std::endl;
                 this->agents[agent]->a_optim.zero_grad();
                 this->agents[agent]->c_optim.zero_grad();
                 float memsize_scale = 1.0f / static_cast<float>(this->batch_size);
@@ -166,6 +168,7 @@ void MADDPG::Train()
             }
         }
         if(epochs % 10 == 0){
+                    std::cout << "Saving..." << std::endl;
                     this->saveCheckpoint();
                 }
         //this->visualize();

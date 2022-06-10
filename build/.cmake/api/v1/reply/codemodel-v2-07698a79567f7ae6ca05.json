@@ -72,14 +72,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "RVO::@145eef247bfb46b6828c",
-					"jsonFile" : "target-RVO-Release-3943daf281e3ddeab9fd.json",
+					"jsonFile" : "target-RVO-Release-c12e7dd0c4428d8ea0b6.json",
 					"name" : "RVO",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "test::@714eac15f71a94114fdf",
-					"jsonFile" : "target-test-Release-57e580f5476ef2908f4b.json",
+					"jsonFile" : "target-test-Release-f9c9846ade66f981675b.json",
 					"name" : "test",
 					"projectIndex" : 0
 				}
@@ -89,8 +89,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build",
-		"source" : "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV"
+		"build" : "/home/eric-pc/Code/Tesis/CNAV/CNAV/build",
+		"source" : "/home/eric-pc/Code/Tesis/CNAV/CNAV"
 	},
 	"version" : 
 	{

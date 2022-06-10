@@ -94,17 +94,17 @@
 			[
 				{
 					"backtrace" : 5,
-					"path" : "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src"
+					"path" : "/home/eric-pc/Code/Tesis/CNAV/CNAV/src"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/eric/libtorch/include"
+					"path" : "/home/eric-pc/libtorch/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/eric/libtorch/include/torch/csrc/api/include"
+					"path" : "/home/eric-pc/libtorch/include/torch/csrc/api/include"
 				}
 			],
 			"language" : "CXX",

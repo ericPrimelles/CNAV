@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples/main.cpp" "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/examples/CMakeFiles/test.dir/main.cpp.o"
+  "/home/eric-pc/Code/Tesis/CNAV/CNAV/examples/main.cpp" "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/examples/CMakeFiles/test.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,13 +20,13 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../examples"
-  "/home/eric/libtorch/include"
-  "/home/eric/libtorch/include/torch/csrc/api/include"
+  "/home/eric-pc/libtorch/include"
+  "/home/eric-pc/libtorch/include/torch/csrc/api/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src/CMakeFiles/RVO.dir/DependInfo.cmake"
+  "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src/CMakeFiles/RVO.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

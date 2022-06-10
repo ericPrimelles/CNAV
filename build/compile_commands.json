@@ -1,47 +1,47 @@
 [
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/RVOSimulator.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/RVOSimulator.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/RVOSimulator.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/RVOSimulator.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/RVOSimulator.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/RVOSimulator.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Agent.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Agent.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Agent.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Agent.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/Agent.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Agent.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/KdTree.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/KdTree.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/KdTree.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/KdTree.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/KdTree.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/KdTree.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Obstacle.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Obstacle.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Obstacle.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Obstacle.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/Obstacle.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Obstacle.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Environment.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Environment.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Environment.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/Environment.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Environment.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/MADDPG.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/MADDPG.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/MADDPG.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/MADDPG.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/MADDPG.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/MADDPG.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Buffer.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Buffer.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/Buffer.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/Buffer.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/Buffer.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Buffer.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/DDPGAgent.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/DDPGAgent.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src/DDPGAgent.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/src",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/RVO.dir/DDPGAgent.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/src/DDPGAgent.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/src/DDPGAgent.cpp"
 },
 {
-  "directory": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/build/examples",
-  "command": "/bin/x86_64-linux-gnu-g++-10 -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/src\" -I\"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples\" -isystem /home/eric/libtorch/include -isystem /home/eric/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/test.dir/main.cpp.o -c \"/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples/main.cpp\"",
-  "file": "/media/eric/New Volume/Maestry/III_Semestre/Tesis/Code/Mine/CNAV/examples/main.cpp"
+  "directory": "/home/eric-pc/Code/Tesis/CNAV/CNAV/build/examples",
+  "command": "/usr/bin/g++ -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE -I/home/eric-pc/Code/Tesis/CNAV/CNAV/src -I/home/eric-pc/Code/Tesis/CNAV/CNAV/examples -isystem /home/eric-pc/libtorch/include -isystem /home/eric-pc/libtorch/include/torch/csrc/api/include -O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 -std=gnu++17 -o CMakeFiles/test.dir/main.cpp.o -c /home/eric-pc/Code/Tesis/CNAV/CNAV/examples/main.cpp",
+  "file": "/home/eric-pc/Code/Tesis/CNAV/CNAV/examples/main.cpp"
 }
 ]
