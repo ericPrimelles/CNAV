@@ -105,6 +105,7 @@ void MADDPG::Train()
     }
     
     // Starting training
+    float avg_reward = 0.0f;
     for (size_t epochs = 0; epochs < k_epochs; epochs++)
     {
         std::cout << "Training" << epochs << "/"<<k_epochs <<std::endl;
@@ -112,6 +113,8 @@ void MADDPG::Train()
 
         env->reset();
         //  Colecting some new experiences
+        float avg_reward = 0.0f;
+        float step_rewards = 0.0f;
         for (size_t i = 0; i < T; i++)
         {
             a.obs = env->getObservation();
@@ -120,7 +123,9 @@ void MADDPG::Train()
             a.obs_1 = env->getObservation();
             a.done = env->isDone();
             this->memory->storeTransition(a);
-
+            step_rewards += torch::mean(a.rewards).item<float>();
+            avg_reward = step_rewards / (i + 1);
+            std::cout << avg_reward << std::endl;
             sampledTrans = memory->sampleBuffer();
             for (size_t agent = 0; agent < this->n_agents; agent++)
             {  
