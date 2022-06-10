@@ -1,5 +1,6 @@
 #include "MADDPG.h"
 #include <iostream>
+#include <fstream>
 
 using std::cout, std::endl;
 
@@ -115,7 +116,7 @@ void MADDPG::Train()
         //  Colecting some new experiences
         float avg_reward = 0.0f;
         float step_rewards = 0.0f;
-        for (size_t i = 0; i < T; i++)
+        for (size_t i = 0; i < T && !this->env->isDone(); i++)
         {
             a.obs = env->getObservation();
             a.actions = this->chooseAction(a.obs);
@@ -123,6 +124,8 @@ void MADDPG::Train()
             a.obs_1 = env->getObservation();
             a.done = env->isDone();
             this->memory->storeTransition(a);
+            
+            
             step_rewards += torch::mean(a.rewards).item<float>();
             avg_reward = step_rewards / (i + 1);
             std::cout << avg_reward << std::endl;
@@ -172,6 +175,15 @@ void MADDPG::Train()
 
             }
         }
+        std::ofstream write;
+        write.open('rewards.txt', ios::out |    ios::app);
+        if (write.is_open())
+        {
+            write << avg_reward << "\n";
+        }
+
+        write.close();
+        
         if(epochs % 10 == 0){
                     std::cout << "Saving..." << std::endl;
                     this->saveCheckpoint();
