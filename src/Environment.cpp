@@ -106,19 +106,18 @@ torch::Tensor Environment::getObservation()
 
 torch::Tensor Environment::calculateGlobalReward()
 {
-
-    this->end = clock();
-    this->time = ((float)this->end - this->start) / CLOCKS_PER_SEC;
+    
+    
 
    if(!this->isDone()) return torch::zeros((int64_t)this->getNumAgents());
 
-    return torch::full((int64_t)this->getNumAgents(), 100.0 - time);
+    return torch::full((int64_t)this->getNumAgents(), 100.0f - this->getGlobalTime());
 }
 
 torch::Tensor Environment::calculateInstantReward()
 {
     std::vector<float> rewards(this->getNumAgents());
-    float r_goal, r_coll_a, r_coll_obs = 0, r_cong = 0;
+    float r_goal = 0, r_coll_a = 0, r_coll_obs = 0, r_cong = 0;
     int64_t size = rewards.size();
     float abs = 0;
     auto calcDist = [](RVO::Vector2 x, RVO::Vector2 y) -> float
@@ -145,6 +144,7 @@ torch::Tensor Environment::calculateInstantReward()
         }
 
         rewards[i] = r_goal + r_coll_a + r_coll_obs + r_cong;
+        std::cout << "{ " << r_goal << "," << r_coll_a << "," << r_coll_obs <<"," << r_cong << " }" << std::endl;
     }
 
     return torch::from_blob(rewards.data(), {size}, torch::dtype(torch::kFloat32));
