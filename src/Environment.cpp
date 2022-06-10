@@ -144,8 +144,7 @@ torch::Tensor Environment::calculateInstantReward()
         }
 
         rewards[i] = r_goal + r_coll_a + r_coll_obs + r_cong;
-        std::cout << "{ " << r_goal << "," << r_coll_a << "," << r_coll_obs <<"," << r_cong << " }" << std::endl;
-    }
+        }
 
     return torch::from_blob(rewards.data(), {size}, torch::dtype(torch::kFloat32));
 }
