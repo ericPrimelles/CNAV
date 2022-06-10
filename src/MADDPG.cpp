@@ -176,7 +176,7 @@ void MADDPG::Train()
             }
         }
         std::ofstream write;
-        write.open('rewards.txt', ios::out |    ios::app);
+        write.open("rewards.txt", std::ios::out |    std::ios::app);
         if (write.is_open())
         {
             write << avg_reward << "\n";

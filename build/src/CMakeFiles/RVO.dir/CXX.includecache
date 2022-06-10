@@ -6,12 +6,20 @@
 
 #IncludeRegexTransform: 
 
-/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Environment.cpp
-Environment.h
-/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Environment.h
-math.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Buffer.h
+torch/torch.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/torch/torch.h
+vector
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/vector
+algorithm
 -
-omp.h
+
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/DDPGAgent.h
+vector
+-
+torch/torch.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/torch/torch.h
+string
 -
 
 /home/eric-pc/Code/Tesis/CNAV/CNAV/src/Environment.h
@@ -24,6 +32,28 @@ torch/torch.h
 chrono
 /home/eric-pc/Code/Tesis/CNAV/CNAV/src/chrono
 exception
+-
+
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/MADDPG.cpp
+MADDPG.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/MADDPG.h
+iostream
+-
+fstream
+-
+
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/MADDPG.h
+torch/torch.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/torch/torch.h
+Environment.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Environment.h
+DDPGAgent.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/DDPGAgent.h
+Buffer.h
+/home/eric-pc/Code/Tesis/CNAV/CNAV/src/Buffer.h
+vector
+-
+string
 -
 
 /home/eric-pc/Code/Tesis/CNAV/CNAV/src/RVO.h
